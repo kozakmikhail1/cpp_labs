@@ -3,7 +3,7 @@
 void Print_message_menu() {
   std::cout << "\n\tMENU" << std::endl;
   std::cout << "1.Creating matrices" << std::endl;
-  std::cout << "2.Filling in the matrices" << std::endl;
+  std::cout << "2.Filling in matrices" << std::endl;
   std::cout << "3.Matrix output" << std::endl;
   std::cout << "4.Matrix subtraction" << std::endl;
   std::cout << "5.Exit" << std::endl;
