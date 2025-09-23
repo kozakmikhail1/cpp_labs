@@ -1,6 +1,6 @@
 #include "functions.h"
 
-int Input_Int(const std::string &prompt = "Enter a single integer: ") {
+int input_int(const std::string &prompt = "Enter a single integer: ") {
   int value = 0;
   while (true) {
     std::cout << C_YELLOW << prompt << C_WHITE;

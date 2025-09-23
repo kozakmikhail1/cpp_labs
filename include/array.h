@@ -20,10 +20,10 @@ class Array
     Array & operator = (const Array& other);
 
 
-    friend void Show (const Array& arr, std::string message);
-    friend void Enter(Array& arr);
+    friend void show (const Array& arr, std::string message);
+    friend void enter(Array& arr);
 
-    int Get_Size() const;
-    bool Is_Empty() const;
+    int get_size() const;
+    bool is_empty() const;
 
 };

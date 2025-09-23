@@ -1,7 +1,7 @@
 #include "menu.h"
 
 
-void Print_Menu_Constructor()
+void print_menu_constructor()
 {
     std::cout << "You must select a constructor to create the array: "<< std::endl;
     std::cout << "1.Basic Constructor."<< std::endl;
@@ -10,7 +10,7 @@ void Print_Menu_Constructor()
 
 }
 
-void Print_Menu()
+void print_menu()
 {
     std::cout << "\tMenu"<< std::endl;
     std::cout << "1.Entering values for an array "<< std::endl;
@@ -19,19 +19,19 @@ void Print_Menu()
     std::cout << "4.Exit"<< std::endl;
 }
 
-void Menu::Choose_Operation()
+void Menu::choose_operation()
 {
     while(true)
     {
-        Print_Menu();
-        int choose = Input_Int("Enter number of operation ");
+        print_menu();
+        int choose = input_int("Enter number of operation ");
         switch (choose)
         {
         case 1:
-            Enter(arr_1);
+            enter(arr_1);
             break;
         case 2:
-            Show(arr_1,"\nArray ");
+            show(arr_1,"\nArray ");
             std::cout <<" " << std::endl;
             break;
         case 3:
@@ -45,26 +45,26 @@ void Menu::Choose_Operation()
         }
     }
 }
-void Menu::Choose_Constructor()
+void Menu::choose_constructor()
 {
     int choose = 0;
 
     while(true)
     {
-        Print_Menu_Constructor();
-        choose = Input_Int("Enter number of operation ");
+        print_menu_constructor();
+        choose = input_int("Enter number of operation ");
         switch (choose)
         {
             case 1:
             {
-                Choose_Operation();
+                choose_operation();
                 break;
             }
             case 2:
             {
-                Array temp_arr_(Input_Int("Enter size of array "));
+                Array temp_arr_(input_int("Enter size of array "));
                 arr_1 = std::move(temp_arr_);
-                Choose_Operation();
+                choose_operation();
                 break;
             }
             case 3:
@@ -79,8 +79,8 @@ void Menu::Choose_Constructor()
 }
 
 
-void Menu::Start()
+void Menu::start()
 {
     system("clear");
-    Choose_Constructor();
+    choose_constructor();
 }

@@ -6,9 +6,9 @@ class Menu
     private:
    Array arr_1;
 
-   void Choose_Constructor();
-   void Choose_Operation(); 
+   void choose_constructor();
+   void choose_operation(); 
 
    public:
-   void Start();
+   void start();
 };

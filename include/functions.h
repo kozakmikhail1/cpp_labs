@@ -3,4 +3,4 @@
 #include "const.h"
 #include <limits>
 
-int Input_Int(const std::string &prompt);
+int input_int(const std::string &prompt);

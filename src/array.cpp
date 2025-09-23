@@ -69,14 +69,14 @@ Array & Array::operator = (const Array &other)
     return *this;
 }
 
-int Array::Get_Size() const {  return size;  };
+int Array::get_size() const {  return size;  };
 
-bool Array::Is_Empty() const
+bool Array::is_empty() const
 {
     return data == nullptr;
 }
 
-void Show(const Array & arr, const std::string message)
+void show(const Array & arr, const std::string message)
 {
     if(arr.data != nullptr)
     {
@@ -89,14 +89,14 @@ void Show(const Array & arr, const std::string message)
     }
 }
 
-void Enter(Array &arr)
+void enter(Array &arr)
 {
     if(arr.size != 0)
     {
         for(int i = 0;i < arr.size;i++)
         {
             std::cout << "Enter one value for the array [" << i + 1 << "]"<<std::endl;
-            arr.data[i] = Input_Int("");
+            arr.data[i] = input_int("");
         }
     }
 }

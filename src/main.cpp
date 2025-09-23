@@ -3,5 +3,5 @@
 int main()
 {
     Menu menu;
-    menu.Start();
+    menu.start();
 }
