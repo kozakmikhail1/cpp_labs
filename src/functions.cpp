@@ -12,7 +12,7 @@ int input_int(const std::string &prompt = "Enter a single integer: ") {
     }
     std::cin.clear();
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    std::cout << C_RED << "Incorrect input, try again! " << C_WHITE
+    std::cout << C_RED << "Incorrect input,try again! " << C_WHITE
               << std::endl;
   }
 }
