@@ -6,7 +6,7 @@ void print_menu_constructor()
     std::cout << "You must select a constructor to create the array: "<< std::endl;
     std::cout << "1.Basic Constructor."<< std::endl;
     std::cout << "2.Constructor with input of array length."<< std::endl;
-    std::cout << "3.Exit."<< std::endl;
+    std::cout << "3.Exit"<< std::endl;
 
 }
 
