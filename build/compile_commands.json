@@ -1,0 +1,26 @@
+[
+{
+  "directory": "C:/Code/C++/cpp-labs/laboratory_work_2/build",
+  "command": "D:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/Lab_2.dir/includes_CXX.rsp -g -o CMakeFiles\\Lab_2.dir\\src\\main.cpp.obj -c C:\\Code\\C++\\cpp-labs\\laboratory_work_2\\src\\main.cpp",
+  "file": "C:/Code/C++/cpp-labs/laboratory_work_2/src/main.cpp",
+  "output": "CMakeFiles/Lab_2.dir/src/main.cpp.obj"
+},
+{
+  "directory": "C:/Code/C++/cpp-labs/laboratory_work_2/build",
+  "command": "D:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/Lab_2.dir/includes_CXX.rsp -g -o CMakeFiles\\Lab_2.dir\\src\\menu.cpp.obj -c C:\\Code\\C++\\cpp-labs\\laboratory_work_2\\src\\menu.cpp",
+  "file": "C:/Code/C++/cpp-labs/laboratory_work_2/src/menu.cpp",
+  "output": "CMakeFiles/Lab_2.dir/src/menu.cpp.obj"
+},
+{
+  "directory": "C:/Code/C++/cpp-labs/laboratory_work_2/build",
+  "command": "D:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/Lab_2.dir/includes_CXX.rsp -g -o CMakeFiles\\Lab_2.dir\\src\\functions.cpp.obj -c C:\\Code\\C++\\cpp-labs\\laboratory_work_2\\src\\functions.cpp",
+  "file": "C:/Code/C++/cpp-labs/laboratory_work_2/src/functions.cpp",
+  "output": "CMakeFiles/Lab_2.dir/src/functions.cpp.obj"
+},
+{
+  "directory": "C:/Code/C++/cpp-labs/laboratory_work_2/build",
+  "command": "D:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/Lab_2.dir/includes_CXX.rsp -g -o CMakeFiles\\Lab_2.dir\\src\\array.cpp.obj -c C:\\Code\\C++\\cpp-labs\\laboratory_work_2\\src\\array.cpp",
+  "file": "C:/Code/C++/cpp-labs/laboratory_work_2/src/array.cpp",
+  "output": "CMakeFiles/Lab_2.dir/src/array.cpp.obj"
+}
+]
