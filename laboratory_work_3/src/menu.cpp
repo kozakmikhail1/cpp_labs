@@ -5,7 +5,7 @@ void print_menu_construct()
     std::cout << "You must select a constructor to create the array: " << std::endl;
     std::cout << "1.Basic Constructor." << std::endl;
     std::cout << "2.Constructor with parameters." << std::endl;
-    std::cout << "3.Exit." << std::endl;
+    std::cout << "3.Exit. " << std::endl;
 }
 
 void print_menu_operations()
@@ -13,7 +13,7 @@ void print_menu_operations()
     std::cout << "\tMenu" << std::endl;
     std::cout << "1.Entering values for an equation " << std::endl;
     std::cout << "2.Displaying an equation on the screen" << std::endl;
-    std::cout << "3.Find the roots of the quadratic equation" << std::endl;
+    std::cout << "3.Find the roots of the quadratic equation." << std::endl;
     std::cout << "4.Exit" << std::endl;
 }
 
