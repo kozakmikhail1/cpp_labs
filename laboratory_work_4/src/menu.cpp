@@ -1,15 +1,15 @@
 #include "menu.h"
 
-Menu::Menu() : lenght(0) { arr_mammal = new Mammal *[lenght]; }
+Menu::Menu() { arr_mammal = new Mammal *[lenght]; }
 
-void Menu::show_info_array() {
+void Menu::show_info_array() const {
   if (arr_mammal != nullptr)
     for (int i = 0; i < lenght; i++) {
       arr_mammal[i]->print_info();
     }
 }
 
-void Menu::show_info_one_mammal(std::string name) {
+void Menu::show_info_one_mammal(std::string name) const {
   bool flag = false;
   if (arr_mammal != nullptr)
     for (int i = 0; i < lenght; i++) {

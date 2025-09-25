@@ -31,7 +31,6 @@ Mammal &Mammal::operator=(Mammal &&other) noexcept {
 
 Mammal::~Mammal() = default;
 
-std::string Mammal::get_name() { return name; }
 void Mammal::enter_info() {
   std::cout << "Enter a name ";
   std::cin >> name;

@@ -27,7 +27,6 @@ C &C::operator=(C &&move) noexcept = default;
 C::~C()
 {
     coefficient_c = 0;
-    delete this;
 }
 
 void C::enter_value()

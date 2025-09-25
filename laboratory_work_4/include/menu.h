@@ -8,15 +8,15 @@
 
 class Menu {
   Mammal **arr_mammal;
-  int lenght;
+  int lenght = 0;
 
   Mammal *choose_create_new_mammal();
 
-  void show_info_one_mammal(std::string name);
+  void show_info_one_mammal(std::string name) const;
   void add_new_mammal(Mammal *new_mammal);
   void print_operation_menu();
   void choose_operations();
-  void show_info_array();
+  void show_info_array() const;
 
 public:
   Menu();
