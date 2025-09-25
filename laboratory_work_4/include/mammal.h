@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include "functions.h"
 #include <string>
 
 class Mammal {

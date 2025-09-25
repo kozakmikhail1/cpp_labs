@@ -1,30 +1,4 @@
-#pragma once
-#include "functions.h"
-#include <iostream>
-#include <vector>
-
-class A
-{
-    double coefficient_a;
-
-  public:
-    explicit A(double first_num);
-
-  protected:
-    double get_coef_a()const { return coefficient_a; }
-    void set_coef_a(double new_value);
-};
-
-class B : public A
-{
-    double coefficient_b;
-
-  public:
-    B(double first_num, double secound_num) : A(first_num), coefficient_b(secound_num){};
-  protected:
-    double get_coef_b()const { return coefficient_b; }
-    void set_coef_b(double new_value) { coefficient_b = new_value; }
-};
+#include "class_b.h"
 
 class C : public B
 {

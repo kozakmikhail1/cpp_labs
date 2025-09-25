@@ -3,10 +3,17 @@
 Menu::Menu() { arr_mammal = new Mammal *[lenght]; }
 
 void Menu::show_info_array() const {
-  if (arr_mammal != nullptr)
+  if (lenght != 0)
+  {
     for (int i = 0; i < lenght; i++) {
       arr_mammal[i]->print_info();
     }
+    std::cout << C_GREN << "The operation was completed successfully"<<C_WHITE<<std::endl;
+  }
+  else
+  {
+    std::cout <<C_RED << "You need to add at least one object." << C_WHITE << std::endl;
+  }
 }
 
 void Menu::show_info_one_mammal(std::string_view name) const {
@@ -19,7 +26,7 @@ void Menu::show_info_one_mammal(std::string_view name) const {
       }
     }
   if (flag == false)
-    std::cout << "We didn't find object with this name" << std::endl;
+    std::cout <<C_RED << "We didn't find object with this name" << C_WHITE<< std::endl;
 }
 
 Mammal *Menu::choose_create_new_mammal() {
@@ -27,8 +34,8 @@ Mammal *Menu::choose_create_new_mammal() {
   Mammal *ptr = nullptr;
 
   while (true) {
-    choose = input_int(
-        "Who do you want to create \n1.Human\n2.Dog\n3.Cat\nEnter number ");
+    choose = get_number(
+        "Who do you want to create \n1.Human\n2.Dog\n3.Cat\nEnter number ",1,3);
 
     switch (choose) {
     case 1: {
@@ -50,7 +57,7 @@ Mammal *Menu::choose_create_new_mammal() {
       break;
     }
     default: {
-      std::cout << "You made mistake, try again\n" << std::endl;
+      std::cout << C_RED<<"You made mistake, try again\n" <<C_WHITE<< std::endl;
       break;
     }
     }
@@ -77,7 +84,7 @@ void Menu::add_new_mammal(Mammal *new_element) {
 }
 
 void Menu::print_operation_menu() const {
-  std::cout << "\tMenu" << std::endl;
+  std::cout << C_YELLOW<<"\tMenu" << C_WHITE<< std::endl;
   std::cout << "1.Create new mammal" << std::endl;
   std::cout << "2.Show info about all mammal" << std::endl;
   std::cout << "3.Show information on one mammal by name" << std::endl;
@@ -87,11 +94,12 @@ void Menu::print_operation_menu() const {
 void Menu::choose_operations() {
   while (true) {
     print_operation_menu();
-    int choose = input_int("Enter number of operation ");
+    int choose = get_number("Enter number of operation ",1,4);
     switch (choose) {
     case 1: {
       Mammal *temp = choose_create_new_mammal();
       add_new_mammal(temp);
+      std::cout << C_GREN << "The operation was completed successfully"<<C_WHITE<<std::endl;
       break;
     }
     case 2:

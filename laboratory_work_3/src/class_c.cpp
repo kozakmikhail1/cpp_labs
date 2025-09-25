@@ -1,25 +1,5 @@
-#include "class_abc.h"
-#include <math.h>
+#include "class_c.h"
 
-A::A(double first_num)
-{
-    if (first_num == 0)
-    {
-        std::cout << "Error, not squer  " << std::endl;
-        exit(1);
-    }
-    else
-        coefficient_a = first_num;
-}
-void A::set_coef_a(double new_value)
-{
-    if (new_value == 0)
-    {
-        std::cout << "Error, a musn't be 0" << std::endl;
-    }
-    else
-        coefficient_a = new_value;
-}
 C::C(const C &other) = default;
 C::C(C &&move) noexcept = default;
 C &C::operator=(const C &other) = default;

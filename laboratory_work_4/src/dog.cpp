@@ -3,7 +3,7 @@
 Dog::Dog():Animal(){};
 
 void Dog::print_info() const {
-  std::cout << "Name = " << get_name() << ", weight = " << get_weight()
+  std::cout << "\nName = " << get_name() << ", weight = " << get_weight()
             << ", height = " << get_height();
-    std::cout << "\nSound : Gav Gav Gav\n" << std::endl;
+    std::cout << "\nSound : Gav Gav Gav" << std::endl;
 }
