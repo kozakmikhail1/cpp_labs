@@ -12,7 +12,7 @@ protected:
   Mammal() : name("unknown"), height(0), weight(0) {}
   Mammal(std::string name, int height, double weight);
 
-  void set_name(const std::string& line) { name = line; };
+  void set_name(std::string_view line) { name = line; };
   int get_height() const { return height; };
   void set_height(int value) { height = value; };
   double get_weight() const { return weight; };
