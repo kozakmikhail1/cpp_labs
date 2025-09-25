@@ -30,12 +30,12 @@ jobs:
           cmake -S laboratory_work_1 -B laboratory_work_1/build 
           build-wrapper-linux-x86-64 --out-dir laboratory_work_1/build_wrapper cmake --build laboratory_work_1/build --config Release
 
-      - name: Build lab2
-        run: |
-          rm -rf laboratory_work_2/build
-          mkdir laboratory_work_2/build
-          cmake -S laboratory_work_2 -B laboratory_work_2/build 
-          build-wrapper-linux-x86-64 --out-dir laboratory_work_2/build_wrapper cmake --build laboratory_work_2/build --config Release
+      # - name: Build lab2
+      #   run: |
+      #     rm -rf laboratory_work_2/build
+      #     mkdir laboratory_work_2/build
+      #     cmake -S laboratory_work_2 -B laboratory_work_2/build 
+      #     build-wrapper-linux-x86-64 --out-dir laboratory_work_2/build_wrapper cmake --build laboratory_work_2/build --config Release
 
       - name: Build lab3
         run: |
@@ -64,18 +64,18 @@ jobs:
             -Dsonar.coverage.exclusions=**
             -Dsonar.cfamily.skipCoverage=true
 
-      - name: SonarCloud scan laboratory_work_2
-        uses: SonarSource/sonarqube-scan-action@v4
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        with:
-          args: >
-            -Dsonar.projectKey=kozakmikhail1_cpp_lab_2
-            -Dsonar.organization=${{ env.SONAR_ORG }}
-            -Dsonar.sources=laboratory_work_2
-            -Dsonar.cfamily.compile-commands=laboratory_work_2/build_wrapper/compile_commands.json
-            -Dsonar.coverage.exclusions=**
-            -Dsonar.cfamily.skipCoverage=true
+      # - name: SonarCloud scan laboratory_work_2
+      #   uses: SonarSource/sonarqube-scan-action@v4
+      #   env:
+      #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      #   with:
+      #     args: >
+      #       -Dsonar.projectKey=kozakmikhail1_cpp_lab_2
+      #       -Dsonar.organization=${{ env.SONAR_ORG }}
+      #       -Dsonar.sources=laboratory_work_2
+      #       -Dsonar.cfamily.compile-commands=laboratory_work_2/build_wrapper/compile_commands.json
+      #       -Dsonar.coverage.exclusions=**
+      #       -Dsonar.cfamily.skipCoverage=true
 
       - name: SonarCloud scan laboratory_work_3
         uses: SonarSource/sonarqube-scan-action@v4
