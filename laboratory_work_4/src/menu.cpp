@@ -9,7 +9,7 @@ void Menu::show_info_array() const {
     }
 }
 
-void Menu::show_info_one_mammal(const std::string name) const {
+void Menu::show_info_one_mammal(const std::string& name) const {
   bool flag = false;
   if (arr_mammal != nullptr)
     for (int i = 0; i < lenght; i++) {
@@ -62,7 +62,7 @@ Mammal *Menu::choose_create_new_mammal() {
 
 void Menu::add_new_mammal(Mammal *new_element) {
   lenght++;
-  Mammal **temp_arr = new Mammal *[lenght];
+  auto temp_arr = new Mammal *[lenght];
 
   for (int i = 0; i < lenght - 1; i++) {
     temp_arr[i] = arr_mammal[i];
