@@ -9,7 +9,7 @@ void Menu::show_info_array() const {
     }
 }
 
-void Menu::show_info_one_mammal(std::string name) const {
+void Menu::show_info_one_mammal(const std::string name) const {
   bool flag = false;
   if (arr_mammal != nullptr)
     for (int i = 0; i < lenght; i++) {
@@ -32,19 +32,19 @@ Mammal *Menu::choose_create_new_mammal() {
 
     switch (choose) {
     case 1: {
-      Human *new_human = new Human();
+      auto new_human = new Human();
       new_human->enter_info();
       ptr = new_human;
       break;
     }
     case 2: {
-      Dog *new_dog = new Dog();
+      auto new_dog = new Dog();
       new_dog->enter_info();
       ptr = new_dog;
       break;
     }
     case 3: {
-      Cat *new_cat = new Cat();
+      auto new_cat = new Cat();
       new_cat->enter_info();
       ptr = new_cat;
       break;
@@ -76,7 +76,7 @@ void Menu::add_new_mammal(Mammal *new_element) {
   arr_mammal = temp_arr;
 }
 
-void Menu::print_operation_menu() {
+void Menu::print_operation_menu() const {
   std::cout << "\tMenu" << std::endl;
   std::cout << "1.Create new mammal" << std::endl;
   std::cout << "2.Show info about all mammal" << std::endl;

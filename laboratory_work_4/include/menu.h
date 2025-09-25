@@ -12,9 +12,9 @@ class Menu {
 
   Mammal *choose_create_new_mammal();
 
-  void show_info_one_mammal(std::string name) const;
+  void show_info_one_mammal(const std::string name) const;
   void add_new_mammal(Mammal *new_mammal);
-  void print_operation_menu();
+  void print_operation_menu() const;
   void choose_operations();
   void show_info_array() const;
 
