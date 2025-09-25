@@ -45,19 +45,24 @@ std::string input_name(const std::string &msg) {
     if (line[0] >= 'A' && line[0] <= 'Z' && line[1] != '\0')
       capital_letter = true;
 
-    if (capital_letter == true) {
-      for (auto index = line.begin() + 1; index != line.end(); index++) {
-        if (*index >= 'a' && *index <= 'z')
-          continue;
-        else {
-          all_latter = false;
-          break;
-        }
+    if (capital_letter != true) {
+      std::cout << C_RED << "Name should be start large \n"
+                << C_WHITE << std::endl;
+      continue;
+    }
+    
+    for (auto index = line.begin() + 1; index != line.end(); index++) {
+      if (*index >= 'a' && *index <= 'z')
+        continue;
+      else {
+        all_latter = false;
+        break;
       }
     }
 
-    if (all_latter == false || capital_letter == false)
-      std::cout << "It isn't a name, try again " << std::endl;
+    if (all_latter == false)
+      std::cout << C_RED << "It isn't a name, try again " << C_WHITE
+                << std::endl;
     else
       break;
   }
