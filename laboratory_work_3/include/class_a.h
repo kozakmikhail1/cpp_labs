@@ -2,6 +2,7 @@
 #include "functions.h"
 #include <iostream>
 #include <vector>
+#include <math.h>
 
 class A
 {

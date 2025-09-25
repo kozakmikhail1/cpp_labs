@@ -1,4 +1,4 @@
-#include "class_abc.h"
+#include "class_a.h"
 #include <math.h>
 
 A::A(double first_num)
