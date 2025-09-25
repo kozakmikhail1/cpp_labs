@@ -9,7 +9,7 @@ void Menu::show_info_array() const {
     }
 }
 
-void Menu::show_info_one_mammal(const std::string& name) const {
+void Menu::show_info_one_mammal(std::string_view name) const {
   bool flag = false;
   if (arr_mammal != nullptr)
     for (int i = 0; i < lenght; i++) {

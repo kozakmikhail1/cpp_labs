@@ -12,7 +12,7 @@ Mammal::Mammal(Mammal &&other) noexcept = default;
 
 Mammal &Mammal::operator=(Mammal &&other) noexcept = default;
 
-Mammal::~Mammal() = default;
+Mammal::~Mammal(){name = "", height = 0, weight = 0;};
 
 void Mammal::enter_info() {
   std::cout << "Enter a name ";
