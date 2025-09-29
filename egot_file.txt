@@ -1,4 +1,0 @@
--Dsonar.exclusions=**/build/**,**/*.exe
-            -Dsonar.issue.ignore.multicriteria=e1
-            -Dsonar.issue.ignore.multicriteria.e1.resourceKey=**/*
-            -Dsonar.issue.ignore.multicriteria.e1.ruleKey=cpp:S5025

@@ -46,11 +46,11 @@ std::string input_name(const std::string &msg) {
       capital_letter = true;
 
     if (capital_letter != true) {
-      std::cout << C_RED << "Name should be start large \n"
+      std::cout << C_RED << "Name should be start large"
                 << C_WHITE << std::endl;
       continue;
     }
-    
+
     for (auto index = line.begin() + 1; index != line.end(); index++) {
       if (*index >= 'a' && *index <= 'z')
         continue;
