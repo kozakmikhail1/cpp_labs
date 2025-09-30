@@ -25,22 +25,22 @@ T* get_array(const std::string& msg, int &lenght)
     std::cout << msg << std::endl;
 
 
-    T * array = new T[lenght];
-    
-    for(int i = 0;i < lenght;i++)
+    auto * array = new T[lenght];
+    int i = 0;
+    while(i < lenght)
     {
         std::cout<<"Enter " << i + 1 << " element of array" << std::endl;
         std::cin >> array[i];
         if (std::cin.good() && std::cin.peek() == '\n')
         {
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            i++;
         }
         else
         {
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             std::cout << "Incorrect input, try again! " << std::endl;
-            i--;
         }
     }
     return array;
