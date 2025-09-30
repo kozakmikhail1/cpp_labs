@@ -2,6 +2,7 @@
 #include <iostream>
 #include <limits>
 #include "menu.h"
+inline constexpr int MAX_INT = 2147483647;
 
 int get_int(const std::string& msg, int min, int max);
 
@@ -20,7 +21,7 @@ T find_max_value(T* array, int length) {
 template<class T>
 T* get_array(const std::string& msg, int &lenght)
 {
-    lenght = get_int("Enter lenght array ",0,INT_MAX);
+    lenght = get_int("Enter lenght array ",0,MAX_INT);
     std::cout << msg << std::endl;
 
 
