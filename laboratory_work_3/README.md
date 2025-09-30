@@ -7,5 +7,5 @@
 Компоненты классов А,В,С – коэффициенты a, b, c. Корни уравнения и 
 методы решения находятся в классе С.
 
-Ссылку на Sonar можно найти [тут](https://sonarcloud.io/project/overview?id=kozakmikhail1_cpp_lab_3)
+Ссылку на результат SonarQube Cloud можно найти [тут](https://sonarcloud.io/project/overview?id=kozakmikhail1_cpp_lab_3)
 
