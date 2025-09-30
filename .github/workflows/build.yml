@@ -43,6 +43,13 @@ jobs:
           mkdir laboratory_work_4/build
           cmake -S laboratory_work_4 -B laboratory_work_4/build 
           build-wrapper-linux-x86-64 --out-dir laboratory_work_4/build_wrapper cmake --build laboratory_work_4/build --config Release
+          
+      - name: Build lab5
+        run: |
+          rm -rf laboratory_work_5/build
+          mkdir laboratory_work_5/build
+          cmake -S laboratory_work_5 -B laboratory_work_5/build 
+          build-wrapper-linux-x86-64 --out-dir laboratory_work_5/build_wrapper cmake --build laboratory_work_5/build --config Release
 
       - name: SonarCloud scan laboratory_work_1
         uses: SonarSource/sonarqube-scan-action@v4
@@ -88,6 +95,23 @@ jobs:
             -Dsonar.organization=${{ env.SONAR_ORG }}
             -Dsonar.sources=laboratory_work_4/src,laboratory_work_4/include
             -Dsonar.cfamily.compile-commands=laboratory_work_4/build_wrapper/compile_commands.json
+            -Dsonar.coverage.exclusions=**
+            -Dsonar.cfamily.skipCoverage=true
+            -Dsonar.exclusions=**/build/**,**/*.exe
+            -Dsonar.issue.ignore.multicriteria=e1
+            -Dsonar.issue.ignore.multicriteria.e1.resourceKey=**/*
+            -Dsonar.issue.ignore.multicriteria.e1.ruleKey=cpp:S5025
+
+      - name: SonarCloud scan laboratory_work_5
+        uses: SonarSource/sonarqube-scan-action@v4
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          args: >
+            -Dsonar.projectKey=kozakmikhail1_cpp_lab_5
+            -Dsonar.organization=${{ env.SONAR_ORG }}
+            -Dsonar.sources=laboratory_work_5/src,laboratory_work_5/include
+            -Dsonar.cfamily.compile-commands=laboratory_work_5/build_wrapper/compile_commands.json
             -Dsonar.coverage.exclusions=**
             -Dsonar.cfamily.skipCoverage=true
             -Dsonar.exclusions=**/build/**,**/*.exe
