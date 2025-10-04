@@ -2,7 +2,6 @@
 #include "dog.h"
 #include "functions.h"
 #include "human.h"
-#include "mammal.h"
 #include "functions.h"
 #include <iostream>
 

@@ -1,6 +1,5 @@
 #pragma once
 #include "animal.h"
-#include "mammal.h"
 class Dog : public Animal
 {
     public:
