@@ -1,14 +1,5 @@
 #include "menu.h"
 
-
-void print_menu()
-{
-    std::cout << "\tMenu" << std::endl;
-    std::cout << "1.Entering array " << std::endl;
-    std::cout << "2.Displaying array" << std::endl;
-    std::cout << "3.Find the max value of the array" << std::endl;
-    std::cout << "4.Exit" << std::endl;
-}
 void print_choose_type_array()
 {
     std::cout << "\nType of array" << std::endl;
@@ -77,8 +68,7 @@ void menu()
         {
             std::string *arr = get_array<std::string>("",lenght);
             print_arr(arr,lenght);
-            std::cout << "Max value in array = " << find_max_value(arr,lenght) << std::endl;
-            arr->clear();
+            std::cout << "max value in array = " << find_max_value(arr,lenght) << std::endl;
             delete[] arr;
             break;
         }
