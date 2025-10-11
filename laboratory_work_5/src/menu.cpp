@@ -10,7 +10,6 @@ void print_choose_type_array()
     std::cout << "5.exit" << std::endl;
 }
 
-
 int get_int(const std::string &prompt = "Enter a single integer: ",int min = 0, int max = 0)
 {
     int value = 0;
@@ -35,50 +34,17 @@ void menu()
     while(true)
     {
         print_choose_type_array();
-        int choose = get_int("Enter number of type ",1,5);
-        int lenght = 0;
-
+        int choose = get_int("Enter number of type ", 1, 5);
+        
         switch (choose)
         {
-        case 1:
-        {
-            int *arr = get_array<int>("",lenght);
-            print_arr(arr,lenght);
-            std::cout << "max value in array = " << find_max_value(arr,lenght) << std::endl;
-            delete[] arr;
-            break;
+        case 1: process_array<int>(); break;
+        case 2: process_array<double>(); break;
+        case 3: process_array<char>(); break;
+        case 4: process_array<std::string>(); break;
+        case 5: return;
+        default: break;
         }
-        case 2:
-        {
-            double *arr = get_array<double>("",lenght);
-            print_arr(arr,lenght);
-            std::cout << "max value in array = " << find_max_value(arr,lenght) << std::endl;
-            delete[] arr;
-            break;
-        }
-        case 3:
-        {
-            char *arr = get_array<char>("",lenght);
-            print_arr(arr,lenght);
-            std::cout << "max value in array = " << find_max_value(arr,lenght) << std::endl;
-            delete[] arr;
-            break;
-        }
-        case 4:
-        {
-            std::string *arr = get_array<std::string>("",lenght);
-            print_arr(arr,lenght);
-            std::cout << "max value in array = " << find_max_value(arr,lenght) << std::endl;
-            delete[] arr;
-            break;
-        }
-        case 5:
-        {
-            return;
-        }
-        default:
-            break;
-        }
-        
     }
 }
+

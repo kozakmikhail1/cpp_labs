@@ -57,3 +57,12 @@ void print_arr(T* arr, int length)
     std::cout << "\n";
 }
 
+template<typename T>
+void process_array()
+{
+    int length = 0;
+    T* arr = get_array<T>("", length);
+    print_arr(arr, length);
+    std::cout << "max value in array = " << find_max_value(arr, length) << std::endl;
+    delete[] arr;
+}
