@@ -149,14 +149,14 @@ jobs:
             -Dsonar.issue.ignore.multicriteria=e1
             -Dsonar.issue.ignore.multicriteria.e1.resourceKey=**/*
             -Dsonar.issue.ignore.multicriteria.e1.ruleKey=cpp:S5025
-    
-    - name: SonarCloud scan laboratory_work_7
+
+      - name: SonarCloud scan laboratory_work_7
         uses: SonarSource/sonarqube-scan-action@v4
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           args: >
-            -Dsonar.projectKey=kozakmikhail1_cpp_lab_6
+            -Dsonar.projectKey=kozakmikhail1_cpp_lab_7
             -Dsonar.organization=${{ env.SONAR_ORG }}
             -Dsonar.sources=laboratory_work_7/src,laboratory_work_7/include
             -Dsonar.cfamily.compile-commands=laboratory_work_7/build_wrapper/compile_commands.json
@@ -166,4 +166,3 @@ jobs:
             -Dsonar.issue.ignore.multicriteria=e1
             -Dsonar.issue.ignore.multicriteria.e1.resourceKey=**/*
             -Dsonar.issue.ignore.multicriteria.e1.ruleKey=cpp:S5025
-            
