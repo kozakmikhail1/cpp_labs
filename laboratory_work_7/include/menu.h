@@ -1,13 +1,13 @@
-#pragma once 
+#pragma once
 #include "binary_file.h"
 
 class Menu
 {
     BinaryFile file;
 
-    void print_menu();
+    void print_menu()const;
     void choose_operation();
 
-    public:
+  public:
     void start();
 };
