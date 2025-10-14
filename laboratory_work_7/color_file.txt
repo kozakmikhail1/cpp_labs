@@ -1,0 +1,15 @@
+black
+white
+red
+green
+blue
+orange
+yellow
+purple
+maroon
+aqua
+turquoise
+emerald
+brown
+lime
+grey
