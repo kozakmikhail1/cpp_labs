@@ -7,7 +7,7 @@ class BinaryFile
 
   public:
     BinaryFile();
-    explicit BinaryFile(std::string name);
+    explicit BinaryFile(const std::string &name);
     ~BinaryFile();
 
     bool open();
@@ -16,7 +16,7 @@ class BinaryFile
     void close();
 
     void show();
-    void write_object(Car &car);
+    void write_object(const Car &car);
     void read_object(Car &car);
     int find_car_by_real_year(int year);
 };

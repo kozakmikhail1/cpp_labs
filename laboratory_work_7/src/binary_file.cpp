@@ -2,7 +2,7 @@
 
 BinaryFile::BinaryFile() : name(NAME_FILE) {}
 
-BinaryFile::BinaryFile(const std::string name) : name(name) {}
+BinaryFile::BinaryFile(const std::string &name) : name(name) {}
 
 BinaryFile::~BinaryFile()
 {
@@ -49,7 +49,7 @@ void BinaryFile::show()
         std::cout << car;
     }
 }
-void BinaryFile::write_object(Car &car)
+void BinaryFile::write_object(const Car &car)
 {
     file << car;
 }

@@ -40,7 +40,7 @@ std::string Car::get_body_color()const
 {
     return body_color;
 }
-int Car::set_body_color()
+int Car::set_body_color() const
 {
     std::string color;
     std::cin >> color;

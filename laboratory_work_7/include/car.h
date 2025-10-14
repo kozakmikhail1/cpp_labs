@@ -22,7 +22,7 @@ class Car
 
     int set_reg_number();
     void set_year_of_release(int);
-    int set_body_color();
+    int set_body_color() const;
 
     friend std::fstream &operator>>(std::fstream &in, Car &car);
     friend std::fstream &operator<<(std::fstream &out,const Car &car);
