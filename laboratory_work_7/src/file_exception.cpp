@@ -4,6 +4,7 @@ FileException::FileException(const std::string& msg) noexcept
 {
     this->msg = msg;
 }
+
 const std::string FileException::what()
 {
     return this->msg;
@@ -18,3 +19,5 @@ std::string FileException::get_msg()
 {
     return msg;
 }
+
+

@@ -14,5 +14,5 @@ class FileException : public std::exception
 
     void set_msg(const std::string& new_msg);
     std::string get_msg();
-    const std::string what();
+    virtual const std::string what();
 };

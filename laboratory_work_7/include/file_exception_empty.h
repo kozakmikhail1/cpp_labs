@@ -5,5 +5,5 @@ class FileExceptionEmpty : public FileException
 {
   public:
     explicit FileExceptionEmpty(const std::string& msg) noexcept;
-    ~FileExceptionEmpty() override;
+    ~FileExceptionEmpty() final = default;
 };
