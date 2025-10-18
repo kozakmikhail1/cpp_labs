@@ -41,7 +41,7 @@ void BinaryFile::show()
     if(!(file.is_open()))
         throw FileException("Error open file.\n");
     if(is_empty())
-        throw FileExceptionEmpty("File is empty.First you need to complete point one\n");
+        throw FileExceptionEmpty("First you need to complete point one\n");
 
     file.seekg(0, std::ios::end);
     size_t length = file.tellg();
@@ -72,7 +72,7 @@ int BinaryFile::find_car_by_real_year(int year)
     if(!(file.is_open()))
         throw FileException("Error open file.\n");
     if(is_empty())
-        throw FileExceptionEmpty("File is empty.First you need to complete point one\n");
+        throw FileExceptionEmpty("First you need to complete point one\n");
     Car car;
     int quantity = 0;
 

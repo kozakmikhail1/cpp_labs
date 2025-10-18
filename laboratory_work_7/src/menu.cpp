@@ -43,13 +43,13 @@ void Menu::choose_operation()
                     break;
                 }
             }
-            catch(FileExceptionEmpty excp)
+            catch(FileExceptionEmpty &excp)
             {
                 std::cout << C_RED << excp.what() << C_WHITE << std::endl; 
             }
         }
     }
-    catch(FileException excp)
+    catch(FileException &excp)
     {
         std::cout << C_RED << excp.what() << C_WHITE << std::endl; 
     }

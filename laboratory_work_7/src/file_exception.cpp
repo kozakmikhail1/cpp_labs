@@ -1,15 +1,20 @@
 #include "file_exception.h"
 
-FileException::FileException()noexcept = default;
 FileException::FileException(const std::string& msg) noexcept
 {
     this->msg = msg;
 }
-
-FileException& FileException::operator=(const FileException& other)noexcept = default;
-
-FileException::~FileException() = default;
 const std::string FileException::what()
 {
     return this->msg;
+}
+
+void FileException::set_msg(const std::string& new_msg)
+{
+    this->msg = new_msg;
+}
+
+std::string FileException::get_msg()
+{
+    return msg;
 }
