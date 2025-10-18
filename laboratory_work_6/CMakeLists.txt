@@ -11,6 +11,7 @@ set(SOURCES
     src/main.cpp
     src/functions.cpp
     src/menu.cpp
+    src/bad_argument.cpp
 )
 
 set(HEADERS 
@@ -20,6 +21,7 @@ set(HEADERS
     include/functions.h
     include/const.h
     include/menu.h
+    include/bad_argument.h
 )
 
 add_executable(Lab_3 ${SOURCES} ${HEADERS})

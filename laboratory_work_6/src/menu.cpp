@@ -44,7 +44,7 @@ void Menu::choose_operations()
                 break;
             }
         }
-        catch(const std::invalid_argument& exc)
+        catch(BadArgument exc)
         {
             std::cout << C_RED << exc.what() << C_WHITE << std::endl;
         }
@@ -77,7 +77,7 @@ void Menu::choose_construct()
                 break;
             }
         }
-        catch(const std::invalid_argument& exc)
+        catch(BadArgument exc)
         {
             std::cout << C_RED << exc.what() << C_WHITE << std::endl;
         }

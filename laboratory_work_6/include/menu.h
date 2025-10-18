@@ -1,6 +1,7 @@
 #include "class_c.h"
 #include "functions.h"
 #include <iostream>
+#include "bad_argument.h"
 
 class Menu
 {
