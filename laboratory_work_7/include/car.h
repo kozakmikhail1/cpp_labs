@@ -1,5 +1,6 @@
 #include "const.h"
 #include "functions.h"
+#include "file_exception_empty.h"
 #include <cstring>
 #include <fstream>
 #include <iomanip>

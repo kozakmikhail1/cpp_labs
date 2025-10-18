@@ -10,6 +10,8 @@ set(SOURCES
     src/binary_file.cpp
     src/menu.cpp
     src/functions.cpp
+    src/file_exception.cpp
+    src/file_exception_empty.cpp
 )
 
 set(HEADERS 
@@ -18,6 +20,9 @@ set(HEADERS
    include/const.h
    include/functions.h
    include/menu.h
+   include/file_exception.h
+   include/file_exception_empty.h
+
 )
 
 add_executable(Lab_7 ${SOURCES})
