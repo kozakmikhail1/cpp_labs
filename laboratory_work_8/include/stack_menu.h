@@ -40,7 +40,6 @@ class StackMenu
     void run();
 };
 
-// Реализация шаблонных методов ВНЕ класса
 template <typename T>
 void StackMenu::run_operations_menu()
 {

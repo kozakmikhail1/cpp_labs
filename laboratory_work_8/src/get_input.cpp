@@ -1,6 +1,5 @@
 #include "get_input.h"
 
-// Определение специализации в .cpp файле
 template<>
 std::string get_input<std::string>(const std::string &prompt) {
     std::string value;
