@@ -1,6 +1,5 @@
 #pragma once
 
-#include "stack_node.h"
 #include <stdexcept>
 
 template <typename T>
