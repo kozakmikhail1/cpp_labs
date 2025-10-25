@@ -6,7 +6,6 @@
 #include <limits>
 #include <string>
 
-
 class StackMenu
 {
   private:
@@ -29,12 +28,6 @@ class StackMenu
     void sort_operation(Stack<T> &stack);
     template <typename T>
     void reverse_operation(Stack<T> &stack);
-    template <typename T>
-    void find_min_operation(Stack<T> &stack);
-    template <typename T>
-    void find_max_operation(Stack<T> &stack);
-    template <typename T>
-    void iterator_traverse_operation(Stack<T> &stack);
 
   public:
     void run();
@@ -97,15 +90,6 @@ void StackMenu::run_operations_menu()
             break;
         case 10:
             reverse_operation(stack);
-            break;
-        case 11:
-            find_min_operation(stack);
-            break;
-        case 12:
-            find_max_operation(stack);
-            break;
-        case 13:
-            iterator_traverse_operation(stack);
             break;
         case 0:
             std::cout << "Returning to type selection." << std::endl;
@@ -204,51 +188,5 @@ void StackMenu::reverse_operation(Stack<T> &stack)
         StackAlgorithms<T>::reverse(stack);
         std::cout << "Stack reversed." << std::endl;
         stack.print();
-    }
-}
-
-template <typename T>
-void StackMenu::find_min_operation(Stack<T> &stack)
-{
-    if (stack.is_empty())
-    {
-        std::cout << "Stack is empty!" << std::endl;
-    }
-    else
-    {
-        T min_val = StackAlgorithms<T>::find_min(stack);
-        std::cout << "Minimum element: " << min_val << std::endl;
-    }
-}
-
-template <typename T>
-void StackMenu::find_max_operation(Stack<T> &stack)
-{
-    if (stack.is_empty())
-    {
-        std::cout << "Stack is empty!" << std::endl;
-    }
-    else
-    {
-        T max_val = StackAlgorithms<T>::find_max(stack);
-        std::cout << "Maximum element: " << max_val << std::endl;
-    }
-}
-
-template <typename T>
-void StackMenu::iterator_traverse_operation(Stack<T> &stack)
-{
-    if (stack.is_empty())
-    {
-        std::cout << "Stack is empty!" << std::endl;
-    }
-    else
-    {
-        std::cout << "Stack elements (via iterator): ";
-        for (auto it = stack.begin(); it != stack.end(); ++it)
-        {
-            std::cout << *it << " ";
-        }
-        std::cout << std::endl;
     }
 }

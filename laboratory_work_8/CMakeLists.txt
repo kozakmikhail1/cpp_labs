@@ -14,7 +14,6 @@ set(HEADERS
     include/stack.h
     include/get_input.h
     include/stack_menu.h
-    include/stack_iterator.h
     include/stack_algorithms.h
 )
 

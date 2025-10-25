@@ -6,7 +6,7 @@
 template <typename T>
 class Stack
 {
-private:
+  private:
     struct Node
     {
         T data;
@@ -17,7 +17,7 @@ private:
     Node *top_node;
     size_t stack_size;
 
-public:
+  public:
     Stack();
     ~Stack();
     Stack(const Stack &other);
@@ -31,12 +31,20 @@ public:
     void print() const;
     void clear_stack();
 
+    bool operator==(const Stack &other) const;
+    bool operator!=(const Stack &other) const;
+    bool operator<(const Stack &other) const;
+    bool operator<=(const Stack &other) const;
+    bool operator>(const Stack &other) const;
+    bool operator>=(const Stack &other) const;
+    void swap(Stack &other);
+
     class Iterator
     {
-    private:
+      private:
         Node *current;
 
-    public:
+      public:
         Iterator(Node *node);
         T &operator*() const;
         Iterator &operator++();
@@ -49,10 +57,14 @@ public:
 };
 
 template <typename T>
-Stack<T>::Node::Node(const T &value) : data(value), next(nullptr) {}
+Stack<T>::Node::Node(const T &value) : data(value), next(nullptr)
+{
+}
 
 template <typename T>
-Stack<T>::Stack() : top_node(nullptr), stack_size(0) {}
+Stack<T>::Stack() : top_node(nullptr), stack_size(0)
+{
+}
 
 template <typename T>
 Stack<T>::~Stack()
@@ -171,7 +183,93 @@ void Stack<T>::clear_stack()
 }
 
 template <typename T>
-Stack<T>::Iterator::Iterator(Node *node) : current(node) {}
+bool Stack<T>::operator==(const Stack &other) const
+{
+    if (stack_size != other.stack_size)
+    {
+        return false;
+    }
+    
+    Node *current1 = top_node;
+    Node *current2 = other.top_node;
+    
+    while (current1 && current2)
+    {
+        if (current1->data != current2->data)
+        {
+            return false;
+        }
+        current1 = current1->next;
+        current2 = current2->next;
+    }
+    
+    return true;
+}
+
+template <typename T>
+bool Stack<T>::operator!=(const Stack &other) const
+{
+    return !(*this == other);
+}
+
+template <typename T>
+bool Stack<T>::operator<(const Stack &other) const
+{
+    Node *current1 = top_node;
+    Node *current2 = other.top_node;
+    
+    while (current1 && current2)
+    {
+        if (current1->data < current2->data)
+        {
+            return true;
+        }
+        if (current2->data < current1->data)
+        {
+            return false;
+        }
+        current1 = current1->next;
+        current2 = current2->next;
+    }
+    
+    return stack_size < other.stack_size;
+}
+
+template <typename T>
+bool Stack<T>::operator<=(const Stack &other) const
+{
+    return !(other < *this);
+}
+
+template <typename T>
+bool Stack<T>::operator>(const Stack &other) const
+{
+    return other < *this;
+}
+
+template <typename T>
+bool Stack<T>::operator>=(const Stack &other) const
+{
+    return !(*this < other);
+}
+
+template <typename T>
+void Stack<T>::swap(Stack &other)
+{
+    Node *temp_top = top_node;
+    size_t temp_size = stack_size;
+    
+    top_node = other.top_node;
+    stack_size = other.stack_size;
+    
+    other.top_node = temp_top;
+    other.stack_size = temp_size;
+}
+
+template <typename T>
+Stack<T>::Iterator::Iterator(Node *node) : current(node)
+{
+}
 
 template <typename T>
 T &Stack<T>::Iterator::operator*() const

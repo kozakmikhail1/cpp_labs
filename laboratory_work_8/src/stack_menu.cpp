@@ -2,7 +2,7 @@
 
 void StackMenu::display_type_menu()
 {
-    std::cout << "=== Stack Type Selection ===" << std::endl;
+    std::cout << "|Stack Type Selection|" << std::endl;
     std::cout << "1. int" << std::endl;
     std::cout << "2. double" << std::endl;
     std::cout << "3. float" << std::endl;
@@ -13,7 +13,7 @@ void StackMenu::display_type_menu()
 
 void StackMenu::display_operations_menu()
 {
-    std::cout << "=== Stack Operations ===" << std::endl;
+    std::cout << "|Stack Operations|" << std::endl;
     std::cout << "1. Push" << std::endl;
     std::cout << "2. Pop" << std::endl;
     std::cout << "3. Peek" << std::endl;
@@ -24,9 +24,6 @@ void StackMenu::display_operations_menu()
     std::cout << "8. Search element" << std::endl;
     std::cout << "9. Sort stack" << std::endl;
     std::cout << "10. Reverse stack" << std::endl;
-    std::cout << "11. Find minimum" << std::endl;
-    std::cout << "12. Find maximum" << std::endl;
-    std::cout << "13. Iterator traverse" << std::endl;
     std::cout << "0. Back to type selection" << std::endl;
 }
 
