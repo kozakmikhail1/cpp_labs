@@ -17,17 +17,17 @@ class StackMenu
     template <typename T>
     void run_operations_menu();
     template <typename T>
-    void push_operation(Stack<T> &stack);
+    void push_operation(Stack<T> &stack) const;
     template <typename T>
-    void pop_operation(Stack<T> &stack);
+    void pop_operation(Stack<T> &stack) const;
     template <typename T>
-    void peek_operation(Stack<T> &stack);
+    void peek_operation(Stack<T> &stack) const;
     template <typename T>
-    void search_operation(Stack<T> &stack);
+    void search_operation(Stack<T> &stack) const;
     template <typename T>
-    void sort_operation(Stack<T> &stack);
+    void sort_operation(Stack<T> &stack) const;
     template <typename T>
-    void reverse_operation(Stack<T> &stack);
+    void reverse_operation(Stack<T> &stack) const;
 
   public:
     void run();
@@ -107,7 +107,7 @@ void StackMenu::run_operations_menu()
 }
 
 template <typename T>
-void StackMenu::push_operation(Stack<T> &stack)
+void StackMenu::push_operation(Stack<T> &stack) const
 {
     T value = get_input<T>("Enter element to push: ");
     stack.push(value);
@@ -115,7 +115,7 @@ void StackMenu::push_operation(Stack<T> &stack)
 }
 
 template <typename T>
-void StackMenu::pop_operation(Stack<T> &stack)
+void StackMenu::pop_operation(Stack<T> &stack) const
 {
     if (stack.is_empty())
     {
@@ -130,7 +130,7 @@ void StackMenu::pop_operation(Stack<T> &stack)
 }
 
 template <typename T>
-void StackMenu::peek_operation(Stack<T> &stack)
+void StackMenu::peek_operation(Stack<T> &stack) const
 {
     if (stack.is_empty())
     {
@@ -143,7 +143,7 @@ void StackMenu::peek_operation(Stack<T> &stack)
 }
 
 template <typename T>
-void StackMenu::search_operation(Stack<T> &stack)
+void StackMenu::search_operation(Stack<T> &stack) const
 {
     if (stack.is_empty())
     {
@@ -158,7 +158,7 @@ void StackMenu::search_operation(Stack<T> &stack)
 }
 
 template <typename T>
-void StackMenu::sort_operation(Stack<T> &stack)
+void StackMenu::sort_operation(Stack<T> &stack) const
 {
     if (stack.is_empty())
     {
@@ -177,7 +177,7 @@ void StackMenu::sort_operation(Stack<T> &stack)
 }
 
 template <typename T>
-void StackMenu::reverse_operation(Stack<T> &stack)
+void StackMenu::reverse_operation(Stack<T> &stack) const
 {
     if (stack.is_empty())
     {

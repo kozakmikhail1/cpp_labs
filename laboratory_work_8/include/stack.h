@@ -145,8 +145,9 @@ Stack<T>::~Stack()
 }
 
 template <typename T>
-Stack<T>::Stack(const Stack &other) : top_node(nullptr), stack_size(0)
+Stack<T>::Stack(const Stack &other)
 {
+    // Убраны избыточные инициализаторы - используются in-class initializers
     Stack<T> temp;
     Node *current = other.top_node;
     while (current)
