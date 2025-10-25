@@ -31,12 +31,13 @@ class Stack
     void print() const;
     void clear_stack();
 
-    bool operator==(const Stack &other) const;
-    bool operator!=(const Stack &other) const;
-    bool operator<(const Stack &other) const;
-    bool operator<=(const Stack &other) const;
-    bool operator>(const Stack &other) const;
-    bool operator>=(const Stack &other) const;
+    friend bool operator==(const Stack &lhs, const Stack &rhs);
+    friend bool operator!=(const Stack &lhs, const Stack &rhs);
+    friend bool operator<(const Stack &lhs, const Stack &rhs);
+    friend bool operator<=(const Stack &lhs, const Stack &rhs);
+    friend bool operator>(const Stack &lhs, const Stack &rhs);
+    friend bool operator>=(const Stack &lhs, const Stack &rhs);
+
     void swap(Stack &other);
 
     class Iterator
@@ -56,6 +57,78 @@ class Stack
     Iterator end() const;
 };
 
+template <typename T>
+bool operator==(const Stack<T> &lhs, const Stack<T> &rhs)
+{
+    if (lhs.stack_size != rhs.stack_size)
+    {
+        return false;
+    }
+    
+    typename Stack<T>::Node *current1 = lhs.top_node;
+    typename Stack<T>::Node *current2 = rhs.top_node;
+    
+    while (current1 && current2)
+    {
+        if (current1->data != current2->data)
+        {
+            return false;
+        }
+        current1 = current1->next;
+        current2 = current2->next;
+    }
+    
+    return true;
+}
+
+template <typename T>
+bool operator!=(const Stack<T> &lhs, const Stack<T> &rhs)
+{
+    return !(lhs == rhs);
+}
+
+template <typename T>
+bool operator<(const Stack<T> &lhs, const Stack<T> &rhs)
+{
+    typename Stack<T>::Node *current1 = lhs.top_node;
+    typename Stack<T>::Node *current2 = rhs.top_node;
+    
+    while (current1 && current2)
+    {
+        if (current1->data < current2->data)
+        {
+            return true;
+        }
+        if (current2->data < current1->data)
+        {
+            return false;
+        }
+        current1 = current1->next;
+        current2 = current2->next;
+    }
+    
+    return lhs.stack_size < rhs.stack_size;
+}
+
+template <typename T>
+bool operator<=(const Stack<T> &lhs, const Stack<T> &rhs)
+{
+    return !(rhs < lhs);
+}
+
+template <typename T>
+bool operator>(const Stack<T> &lhs, const Stack<T> &rhs)
+{
+    return rhs < lhs;
+}
+
+template <typename T>
+bool operator>=(const Stack<T> &lhs, const Stack<T> &rhs)
+{
+    return !(lhs < rhs);
+}
+
+// Остальная реализация класса Stack
 template <typename T>
 Stack<T>::Node::Node(const T &value) : data(value), next(nullptr)
 {
@@ -180,77 +253,6 @@ void Stack<T>::clear_stack()
     {
         pop();
     }
-}
-
-template <typename T>
-bool Stack<T>::operator==(const Stack &other) const
-{
-    if (stack_size != other.stack_size)
-    {
-        return false;
-    }
-    
-    Node *current1 = top_node;
-    Node *current2 = other.top_node;
-    
-    while (current1 && current2)
-    {
-        if (current1->data != current2->data)
-        {
-            return false;
-        }
-        current1 = current1->next;
-        current2 = current2->next;
-    }
-    
-    return true;
-}
-
-template <typename T>
-bool Stack<T>::operator!=(const Stack &other) const
-{
-    return !(*this == other);
-}
-
-template <typename T>
-bool Stack<T>::operator<(const Stack &other) const
-{
-    Node *current1 = top_node;
-    Node *current2 = other.top_node;
-    
-    while (current1 && current2)
-    {
-        if (current1->data < current2->data)
-        {
-            return true;
-        }
-        if (current2->data < current1->data)
-        {
-            return false;
-        }
-        current1 = current1->next;
-        current2 = current2->next;
-    }
-    
-    return stack_size < other.stack_size;
-}
-
-template <typename T>
-bool Stack<T>::operator<=(const Stack &other) const
-{
-    return !(other < *this);
-}
-
-template <typename T>
-bool Stack<T>::operator>(const Stack &other) const
-{
-    return other < *this;
-}
-
-template <typename T>
-bool Stack<T>::operator>=(const Stack &other) const
-{
-    return !(*this < other);
 }
 
 template <typename T>
