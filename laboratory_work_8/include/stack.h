@@ -10,8 +10,8 @@ class Stack
     struct Node
     {
         T data;
-        Node *next;
-        Node(const T &value);
+        Node *next = nullptr;  // in-class initializer вместо списка инициализации
+        Node(const T &value) : data(value) {}  // убрали next из списка инициализации
     };
 
     Node *top_node;
@@ -31,14 +31,67 @@ class Stack
     void print() const;
     void clear_stack();
 
-    friend bool operator==(const Stack &lhs, const Stack &rhs);
-    friend bool operator!=(const Stack &lhs, const Stack &rhs);
-    friend bool operator<(const Stack &lhs, const Stack &rhs);
-    friend bool operator<=(const Stack &lhs, const Stack &rhs);
-    friend bool operator>(const Stack &lhs, const Stack &rhs);
-    friend bool operator>=(const Stack &lhs, const Stack &rhs);
+    // Hidden friends - реализация внутри класса
+    friend bool operator==(const Stack &lhs, const Stack &rhs) {
+        if (lhs.stack_size != rhs.stack_size)
+        {
+            return false;
+        }
+        
+        Node *current1 = lhs.top_node;
+        Node *current2 = rhs.top_node;
+        
+        while (current1 && current2)
+        {
+            if (current1->data != current2->data)
+            {
+                return false;
+            }
+            current1 = current1->next;
+            current2 = current2->next;
+        }
+        
+        return true;
+    }
+    
+    friend bool operator!=(const Stack &lhs, const Stack &rhs) {
+        return !(lhs == rhs);
+    }
+    
+    friend bool operator<(const Stack &lhs, const Stack &rhs) {
+        Node *current1 = lhs.top_node;
+        Node *current2 = rhs.top_node;
+        
+        while (current1 && current2)
+        {
+            if (current1->data < current2->data)
+            {
+                return true;
+            }
+            if (current2->data < current1->data)
+            {
+                return false;
+            }
+            current1 = current1->next;
+            current2 = current2->next;
+        }
+        
+        return lhs.stack_size < rhs.stack_size;
+    }
+    
+    friend bool operator<=(const Stack &lhs, const Stack &rhs) {
+        return !(rhs < lhs);
+    }
+    
+    friend bool operator>(const Stack &lhs, const Stack &rhs) {
+        return rhs < lhs;
+    }
+    
+    friend bool operator>=(const Stack &lhs, const Stack &rhs) {
+        return !(lhs < rhs);
+    }
 
-    void swap(Stack &other);
+    void swap(Stack &other) noexcept;
 
     class Iterator
     {
@@ -57,83 +110,7 @@ class Stack
     Iterator end() const;
 };
 
-template <typename T>
-bool operator==(const Stack<T> &lhs, const Stack<T> &rhs)
-{
-    if (lhs.stack_size != rhs.stack_size)
-    {
-        return false;
-    }
-    
-    typename Stack<T>::Node *current1 = lhs.top_node;
-    typename Stack<T>::Node *current2 = rhs.top_node;
-    
-    while (current1 && current2)
-    {
-        if (current1->data != current2->data)
-        {
-            return false;
-        }
-        current1 = current1->next;
-        current2 = current2->next;
-    }
-    
-    return true;
-}
-
-template <typename T>
-bool operator!=(const Stack<T> &lhs, const Stack<T> &rhs)
-{
-    return !(lhs == rhs);
-}
-
-template <typename T>
-bool operator<(const Stack<T> &lhs, const Stack<T> &rhs)
-{
-    typename Stack<T>::Node *current1 = lhs.top_node;
-    typename Stack<T>::Node *current2 = rhs.top_node;
-    
-    while (current1 && current2)
-    {
-        if (current1->data < current2->data)
-        {
-            return true;
-        }
-        if (current2->data < current1->data)
-        {
-            return false;
-        }
-        current1 = current1->next;
-        current2 = current2->next;
-    }
-    
-    return lhs.stack_size < rhs.stack_size;
-}
-
-template <typename T>
-bool operator<=(const Stack<T> &lhs, const Stack<T> &rhs)
-{
-    return !(rhs < lhs);
-}
-
-template <typename T>
-bool operator>(const Stack<T> &lhs, const Stack<T> &rhs)
-{
-    return rhs < lhs;
-}
-
-template <typename T>
-bool operator>=(const Stack<T> &lhs, const Stack<T> &rhs)
-{
-    return !(lhs < rhs);
-}
-
 // Остальная реализация класса Stack
-template <typename T>
-Stack<T>::Node::Node(const T &value) : data(value), next(nullptr)
-{
-}
-
 template <typename T>
 Stack<T>::Stack() : top_node(nullptr), stack_size(0)
 {
@@ -256,7 +233,7 @@ void Stack<T>::clear_stack()
 }
 
 template <typename T>
-void Stack<T>::swap(Stack &other)
+void Stack<T>::swap(Stack &other) noexcept
 {
     Node *temp_top = top_node;
     size_t temp_size = stack_size;
