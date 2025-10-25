@@ -11,7 +11,7 @@ class Stack
     {
         T data;
         Node *next = nullptr;  // in-class initializer вместо списка инициализации
-        Node(const T &value) : data(value) {}  // убрали next из списка инициализации
+        explicit Node(const T &value) : data(value) {}  // добавлен explicit
     };
 
     Node *top_node;
@@ -99,11 +99,19 @@ class Stack
         Node *current;
 
       public:
-        Iterator(Node *node);
+        explicit Iterator(Node *node);  // добавлен explicit
+        
         T &operator*() const;
         Iterator &operator++();
-        bool operator!=(const Iterator &other) const;
-        bool operator==(const Iterator &other) const;
+        
+        // Hidden friends для Iterator
+        friend bool operator!=(const Iterator &lhs, const Iterator &rhs) {
+            return lhs.current != rhs.current;
+        }
+        
+        friend bool operator==(const Iterator &lhs, const Iterator &rhs) {
+            return lhs.current == rhs.current;
+        }
     };
 
     Iterator begin() const;
@@ -119,7 +127,13 @@ Stack<T>::Stack() : top_node(nullptr), stack_size(0)
 template <typename T>
 Stack<T>::~Stack()
 {
-    clear_stack();
+    // Деструктор не должен бросать исключения - убираем вызов pop()
+    while (top_node)
+    {
+        Node *temp = top_node;
+        top_node = top_node->next;
+        delete temp;
+    }
 }
 
 template <typename T>
@@ -264,18 +278,6 @@ typename Stack<T>::Iterator &Stack<T>::Iterator::operator++()
         current = current->next;
     }
     return *this;
-}
-
-template <typename T>
-bool Stack<T>::Iterator::operator!=(const Iterator &other) const
-{
-    return current != other.current;
-}
-
-template <typename T>
-bool Stack<T>::Iterator::operator==(const Iterator &other) const
-{
-    return current == other.current;
 }
 
 template <typename T>
