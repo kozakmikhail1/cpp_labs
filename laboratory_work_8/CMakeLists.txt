@@ -15,6 +15,7 @@ set(HEADERS
     include/get_input.h
     include/stack_menu.h
     include/stack_algorithms.h
+    include/stack_empty_exception.h
 )
 
 add_executable(lab8 ${SOURCES} ${HEADERS})

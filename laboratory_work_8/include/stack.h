@@ -2,13 +2,7 @@
 
 #include <iostream>
 #include <stdexcept>
-
-// Декларация пользовательского исключения
-class StackEmptyException : public std::runtime_error
-{
-public:
-    StackEmptyException() : std::runtime_error("Stack is empty") {}
-};
+#include "stack_empty_exception.h"
 
 template <typename T>
 class Stack
@@ -25,7 +19,7 @@ class Stack
     size_t stack_size = 0;     // in-class initializer
 
   public:
-    Stack();
+    Stack() = default;  // используем = default вместо пустой реализации
     ~Stack();
     Stack(const Stack &other);
     Stack &operator=(const Stack &other);
@@ -126,12 +120,6 @@ class Stack
 };
 
 // Остальная реализация класса Stack
-template <typename T>
-Stack<T>::Stack()
-{
-    // Пустая реализация - все инициализировано in-class initializers
-}
-
 template <typename T>
 Stack<T>::~Stack()
 {
