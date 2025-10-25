@@ -3,6 +3,13 @@
 #include <iostream>
 #include <stdexcept>
 
+// Декларация пользовательского исключения
+class StackEmptyException : public std::runtime_error
+{
+public:
+    StackEmptyException() : std::runtime_error("Stack is empty") {}
+};
+
 template <typename T>
 class Stack
 {
@@ -14,8 +21,8 @@ class Stack
         explicit Node(const T &value) : data(value) {}  // добавлен explicit
     };
 
-    Node *top_node;
-    size_t stack_size;
+    Node *top_node = nullptr;  // in-class initializer
+    size_t stack_size = 0;     // in-class initializer
 
   public:
     Stack();
@@ -120,8 +127,9 @@ class Stack
 
 // Остальная реализация класса Stack
 template <typename T>
-Stack<T>::Stack() : top_node(nullptr), stack_size(0)
+Stack<T>::Stack()
 {
+    // Пустая реализация - все инициализировано in-class initializers
 }
 
 template <typename T>
@@ -178,7 +186,7 @@ Stack<T> &Stack<T>::operator=(const Stack &other)
 template <typename T>
 void Stack<T>::push(const T &value)
 {
-    Node *new_node = new Node(value);
+    auto *new_node = new Node(value);  // заменен тип на auto
     new_node->next = top_node;
     top_node = new_node;
     stack_size++;
@@ -189,7 +197,7 @@ void Stack<T>::pop()
 {
     if (is_empty())
     {
-        throw std::runtime_error("Stack is empty");
+        throw StackEmptyException();  // специализированное исключение
     }
     Node *temp = top_node;
     top_node = top_node->next;
@@ -202,7 +210,7 @@ T Stack<T>::peek() const
 {
     if (is_empty())
     {
-        throw std::runtime_error("Stack is empty");
+        throw StackEmptyException();  // специализированное исключение
     }
     return top_node->data;
 }

@@ -1,6 +1,6 @@
 #include "stack_menu.h"
 
-void StackMenu::display_type_menu()
+void StackMenu::display_type_menu() const
 {
     std::cout << "|Stack Type Selection|" << std::endl;
     std::cout << "1. int" << std::endl;
@@ -11,7 +11,7 @@ void StackMenu::display_type_menu()
     std::cout << "0. Exit" << std::endl;
 }
 
-void StackMenu::display_operations_menu()
+void StackMenu::display_operations_menu() const
 {
     std::cout << "|Stack Operations|" << std::endl;
     std::cout << "1. Push" << std::endl;
@@ -27,7 +27,7 @@ void StackMenu::display_operations_menu()
     std::cout << "0. Back to type selection" << std::endl;
 }
 
-int StackMenu::get_menu_choice(const std::string &prompt)
+int StackMenu::get_menu_choice(const std::string &prompt) const
 {
     int choice;
     while (true)
@@ -49,7 +49,7 @@ int StackMenu::get_menu_choice(const std::string &prompt)
     }
 }
 
-void StackMenu::clear_input_buffer()
+void StackMenu::clear_input_buffer() const
 {
     std::cin.clear();
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');

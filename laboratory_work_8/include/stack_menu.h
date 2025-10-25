@@ -9,10 +9,10 @@
 class StackMenu
 {
   private:
-    void display_type_menu();
-    void display_operations_menu();
-    int get_menu_choice(const std::string &prompt);
-    void clear_input_buffer();
+    void display_type_menu() const;
+    void display_operations_menu() const;
+    int get_menu_choice(const std::string &prompt) const;
+    void clear_input_buffer() const;
 
     template <typename T>
     void run_operations_menu();
